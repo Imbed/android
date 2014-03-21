@@ -12,9 +12,12 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import android.view.KeyEvent;
+
 public class MainActivity extends Activity
 {
     private static final String TAG = "MainActivity";
+    private WebView myWebView;
 
     /** Called when the activity is first created. */
     @Override
@@ -23,8 +26,26 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView = (WebView) findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("http://www.google.com");
+    }
+
+    /** allow the back button to go back in the webview */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+      if(event.getAction() == KeyEvent.ACTION_DOWN){
+          switch(keyCode)
+          {
+          case KeyEvent.KEYCODE_BACK:
+            if(myWebView.canGoBack()){
+              myWebView.goBack();
+            }else{
+              finish();
+            }
+            return true;
+          }
+      }
+      return super.onKeyDown(keyCode, event);
     }
 }
