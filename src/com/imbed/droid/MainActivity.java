@@ -28,7 +28,8 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
         myWebView = (WebView) findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("http://www.google.com");
+        myWebView.loadUrl("file:///android_asset/test.html");
+        myWebView.getSettings().setJavaScriptEnabled(true);
     }
 
     /** allow the back button to go back in the webview */

@@ -5,8 +5,8 @@ Uses a [WebView](http://developer.android.com/reference/android/webkit/WebView.h
 ## Features
 * WebView is full screen (no title bar)
 * Android Back button goes back in WebView
+* Loads local html in /assets folder
 
 ## TODO
-* Load local html
 * Build Java <-> Javascript bridge (at least examples)
 
