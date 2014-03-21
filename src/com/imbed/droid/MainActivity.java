@@ -28,25 +28,19 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
         myWebView = (WebView) findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("file:///android_asset/test.html");
         myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.loadUrl("file:///android_asset/test.html");
     }
 
     /** allow the back button to go back in the webview */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-      if(event.getAction() == KeyEvent.ACTION_DOWN){
-          switch(keyCode)
-          {
-          case KeyEvent.KEYCODE_BACK:
-            if(myWebView.canGoBack()){
-              myWebView.goBack();
-            }else{
-              finish();
-            }
-            return true;
-          }
+      // Check if the key event was the Back button and if there's history
+      if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()) {
+          myWebView.goBack();
+          return true;
       }
+      // system behavior (probably exit the activity)
       return super.onKeyDown(keyCode, event);
     }
 }
