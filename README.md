@@ -6,6 +6,7 @@ Uses a [WebView](http://developer.android.com/reference/android/webkit/WebView.h
 * WebView is full screen (no title bar)
 * Android Back button goes back in WebView
 * Loads local html in /assets folder
+* Allows visiting links to external urls in a new browser window (outside app)
 
 ## TODO
 * Build Java <-> Javascript bridge (at least examples)

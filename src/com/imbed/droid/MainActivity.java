@@ -14,6 +14,8 @@ import android.webkit.WebViewClient;
 
 import android.view.KeyEvent;
 
+import com.imbed.droid.DroidWebViewClient;
+
 public class MainActivity extends Activity
 {
     private static final String TAG = "MainActivity";
@@ -27,7 +29,7 @@ public class MainActivity extends Activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
         myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.setWebViewClient(new WebViewClient());
+        myWebView.setWebViewClient(new DroidWebViewClient());
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadUrl("file:///android_asset/test.html");
     }
