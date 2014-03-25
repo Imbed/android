@@ -15,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.view.KeyEvent;
 
 import com.imbed.droid.DroidWebViewClient;
+import com.imbed.droid.WebAppInterface;
 
 public class MainActivity extends Activity
 {
@@ -29,9 +30,18 @@ public class MainActivity extends Activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
         myWebView = (WebView) findViewById(R.id.webview);
+
+        // set WebViewClient to handle external url links
         myWebView.setWebViewClient(new DroidWebViewClient());
+
+        // Enable JS
         myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.loadUrl("file:///android_asset/test.html");
+
+        // Set web app interface to give your JS an Android API
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+
+        // Load your local webpage
+        myWebView.loadUrl("file:///android_asset/index.html");
     }
 
     /** allow the back button to go back in the webview */
