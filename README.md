@@ -9,6 +9,10 @@ Uses a [WebView](http://developer.android.com/reference/android/webkit/WebView.h
 * Allows visiting links to external urls in a new browser window (outside app)
 * Java <-> Javascript bridge (at least examples)
 
+## TODO
+* Rake tasks for building & deploying
+* Basic social network sharing examples
+
 ## CAUTION
 
 from [Android WebView Guide](http://developer.android.com/guide/webapps/webview.html)
